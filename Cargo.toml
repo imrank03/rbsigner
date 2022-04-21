@@ -6,5 +6,10 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-p256 = "0.10.1"
-ecdsa = "0.13.4"
+sha2 ="0.10"
+p256 = {version = "0.10.1", default-features = false, features = ["ecdsa-core"]}
+rand = "0.8.5"
+
+[features]
+default = ["nistp256"]
+nistp256 = ["p256/ecdsa"]
